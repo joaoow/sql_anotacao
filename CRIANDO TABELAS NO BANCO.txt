@@ -1,0 +1,66 @@
+CRIANDO TABELA EM UM BANCO DE DADOS 
+CREATE TABLE cliente(
+idcliente INT not null primary key auto_increment,
+nome VARCHAR(45) not null,
+telefone VARCHAR(14) not null,
+email VARCHAR(60) not null);
+
+
+CREATE TABLE funcionario(
+idfuncionario int not null primary key auto_increment,
+nome VARCHAR(45) not null,
+cargo VARCHAR(30) not null,
+setor VARCHAR(30) not null,
+salario DECIMAL(10,2) not null);
+
+CREATE TABLE produto(
+idproduto int not null primary key auto_increment,
+descricao VARCHAR(60) not null,
+preco DECIMAL(10,2) not null,
+categoria VARCHAR(30) not null,
+idfornecedor int not null);
+
+CREATE TABLE estoque(
+idestoque int not null primary key auto_increment,
+idproduto int not null,
+quantidade int not null,
+setor CHAR(2) not null);
+
+
+CREATE TABLE compra(
+idcompra int not null primary key auto_increment,
+datacompra DATE not null,
+idfuncionario int not null);
+
+CREATE TABLE item_da_compra(
+iditem int not null primary key auto_increment,
+idproduto int not null,
+quantidade int not null,
+preco decimal(10,2) not null,
+idcompra int not null);
+
+CREATE TABLE venda(
+idvenda int not null primary key auto_increment,
+datavenda date not null,
+idfuncionario int not null);
+
+CREATE TABLE item_da_venda(
+iditem int not null primary key auto_increment,
+idproduto int not null,
+quantidade int not null,
+preco decimal(10,2) not null,
+idvenda int not null);
+
+CREATE TABLE fornecedor(
+idfornecedor int not null primary key auto_increment,
+razao VARCHAR(60) not null,
+fantasia VARCHAR(40) not null,
+cnpj VARCHAR(14) not null,
+telefone VARCHAR(14) null);
+
+APAGANDO UMA TABELA
+DROP TABLE fornecedor;
+
+
+PARA SELECIONAR UMA COLUNA E PRENCHER OS DADOS NA TABELA
+SELECT * FROM fornecedor;
